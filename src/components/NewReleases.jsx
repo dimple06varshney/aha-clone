@@ -39,8 +39,8 @@ function NewReleases(props) {
             <div key={i}>
                <img
             className="img-card"
-              src={`https://image.tmdb.org/t/p/w500${e.poster_path}            `}
-            
+              src={`https://image.tmdb.org/t/p/w500${e.poster_path}`}
+              alt="poster"
             />
 
             </div>
@@ -80,7 +80,7 @@ margin-left: 2%;
     width:95%;
   height: 240px;
   transition: 0.3s;
-
+  border-radius :5% ;
   &:hover{
     transform: translate(0, -15px);
   }

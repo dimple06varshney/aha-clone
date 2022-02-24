@@ -48,13 +48,13 @@ const dispatch = useDispatch()
   return (
   <Carousel {...settings}>
       <Wrap>
-          <img src="https://image-resizer-cloud-api.akamaized.net/image/A123AD13-3C0D-4CBF-8965-A9190E074E35/0-3x1.jpg?width=1440"/>
+          <img src="https://image-resizer-cloud-api.akamaized.net/image/A123AD13-3C0D-4CBF-8965-A9190E074E35/0-3x1.jpg?width=1440"  alt=''/>
       </Wrap>
       <Wrap>
-          <img src="https://image-resizer-cloud-api.akamaized.net/image/73315301-F56E-49DB-9DBF-CC03D04CC99F/0-3x1.jpg?width=1440"/>
+          <img src="https://image-resizer-cloud-api.akamaized.net/image/73315301-F56E-49DB-9DBF-CC03D04CC99F/0-3x1.jpg?width=1440" alt=''/>
       </Wrap>
       <Wrap>
-          <img src="https://image-resizer-cloud-api.akamaized.net/image/6F40B3A6-FACD-4D2A-AC86-A123CC569A01/0-3x1.jpg?width=1440"/>
+          <img src="https://image-resizer-cloud-api.akamaized.net/image/6F40B3A6-FACD-4D2A-AC86-A123CC569A01/0-3x1.jpg?width=1440" alt=''/>
       </Wrap>
 
   </Carousel>

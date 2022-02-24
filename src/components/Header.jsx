@@ -1,32 +1,52 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
+import {useState} from "react";
+import "./header.css";
 function Header() {
+  
+  const [showBlack, setShowBlack] = useState(false)
+
+  useEffect(()=>{
+     window.addEventListener("scroll", ()=>{
+       if(window.scrollY > 100)
+       {
+         setShowBlack(true)
+       }else setShowBlack(false)
+     })
+     return ()=>{
+       window.removeEventListener("scroll")
+     }
+  },[])
   return (
-    <Navbar>
+    <Navbar id={`${showBlack && "nav_black"}`}>
+      <div className="navbar_fadetop"/>
       <Logo src="https://www.aha.video/aha-logo.db810aeaa42b356a86a7.png" />
       <NavMenu>
-        <a>
+        <StyledLink to={"/"}>
           <span>Home</span>
-        </a>
-        <a>
+        </StyledLink >
+        <StyledLink to={"/movies"}>
           <span>Movies</span>
-        </a>
-        <a>
+        </StyledLink>
+        
+        <StyledLink to={"/"}>
           <span>Shows</span>
-        </a>
-        <a>
+        </StyledLink>
+        
+        <StyledLink to={"/"}>
           <span>Kids</span>
-        </a>
-        <a>
+        </StyledLink>
+        
+        <StyledLink to={"/"}>
           <span>My aha</span>
-        </a>
+        </StyledLink>
       </NavMenu>
       <NavTools>
         <SearchBox>
           <input type="text" placeholder="Search Title Movie or Cast" />
 
-          <a href="#">
+          <a href="">
             <SearchImage src="https://www.aha.video/search-icon.704c679b82e10dd8379c.svg" />
           </a>
         </SearchBox>
@@ -34,7 +54,7 @@ function Header() {
         <LanguageImage src="https://www.aha.video/language-icon.ef88ebcc6b1bcda97fc4.svg" />
         <SubscribeButton>Subscribe Now</SubscribeButton>
         <UserImage src="https://www.aha.video/assets/icons/svg/avatar_profile.svg" />
-        <SignIn>Sign In</SignIn>
+       <StyledLink to={"/signin"}> <SignIn>Sign In</SignIn></StyledLink>
       </NavTools>
     </Navbar>
   );
@@ -44,13 +64,23 @@ export default Header;
 
 const Navbar = styled.nav`
   height: 70px;
-  background: #1d1e20;
+  background: linear-gradient(180deg, transparent, rgba(37, 37,37, 0.61),#111);
   display: flex;
+  width: 98%;
   align-items: center;
-  padding: 0px 32px;
-  overflow-x: hidden;
+  top:0;
+  padding: 0px 20px;
+  position:fixed;
+  z-index:1;
 `;
-
+const StyledLink  = styled(Link)`
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+`;
 const Logo = styled.img`
   width: 60px;
 `;

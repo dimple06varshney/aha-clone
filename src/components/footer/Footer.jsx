@@ -1,7 +1,6 @@
 import "./footer.css";
 import FooterCategCard from "./FooterCategCard";
 const Footer = () =>{
-    const mustWatchAr = ["Krack", "Naandhi","Chaavu Kaburu Challaga", "Kanulu Kanulanu Dochayante"]
     return (
         <div className="footer">
             <div className="footer-top-sec">
@@ -11,9 +10,9 @@ const Footer = () =>{
                     </div>
                     <div className="connect-with-text">Connect with us</div>
                     <div className="connectIconSec">
-                        <a href="#"><img src="https://www.aha.video/assets/icons/svg/instagram-icon.svg" alt="Instagram" /></a>
-                        <a href="#"><img src="https://www.aha.video/assets/icons/svg/facebook-footer.svg" alt="facebook" /></a>
-                        <a href="#"><img src="https://www.aha.video/assets/icons/svg/twitter-icon.svg" alt="twitter" /></a>
+                        <a href=""><img src="https://www.aha.video/assets/icons/svg/instagram-icon.svg" alt="Instagram" /></a>
+                        <a href=""><img src="https://www.aha.video/assets/icons/svg/facebook-footer.svg" alt="facebook" /></a>
+                        <a href=""><img src="https://www.aha.video/assets/icons/svg/twitter-icon.svg" alt="twitter" /></a>
                     </div>
                     <div className="downloadAppCont">
                        <div className="download-text">Download aha mobile app</div>
