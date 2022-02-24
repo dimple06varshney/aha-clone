@@ -1,0 +1,200 @@
+body{
+    font-family: proximaNova;
+    margin: 0%;
+    padding: 0%;
+}
+.login{
+    background-color: #242529;
+    width: 100%;
+    height: auto;
+    color: white;
+    margin: 0%;
+    padding: 2% 0%;
+}
+.login-logo{
+    min-width: 62px;
+    width: 120px;
+    min-height: 33px;
+    background-image: url(https://www.aha.video/aha-logo.db810aeaa42b356a86a7.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    cursor: pointer;
+left: 0%;
+}
+.loginCard{
+    /* display: flex; */
+    background-color: #1a1d1e;
+    border: 1px solid #35393f;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 12px;
+    min-width: 552px;
+    width: 552px;
+    min-height: 31.3rem;
+    max-height: 33rem;
+    margin:auto;
+}
+.loginCardCont{
+    width: 60%;
+    min-height: 490px;
+    margin: auto;
+    /* border:1px solid blue; */
+}
+.go-backbtn{
+    position: relative;
+    top: 63px;
+    width: 40px;
+    right: 16%;
+    cursor: pointer;
+}
+.login-start-text{
+    color: #fff;
+    font-style: normal;
+    /* border:2px solid red; */
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 32px;
+    text-transform: uppercase;
+}
+.start-text-dot{
+    color: #ff6d2e;
+}
+.login-input-cont{
+    width: 328px;
+    height: 46px;
+    background: linear-gradient(139.8deg,hsla(0,0%,100%,.2) 10.38%,hsla(0,0%,100%,0) 137.67%);
+    box-shadow: 0 4px 24px -1px rgb(0 0 0 / 20%);
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.login-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-flag-cont{
+    display: flex;
+    align-items: center;
+    width: 85px;
+    max-width: 115px;
+    margin-left: 16px;
+}
+.INFlag{
+    width: 29px;
+    height: 24px;
+    border-radius: 4px
+}
+.INno-cont,.lesswidth{
+    width: 50px;
+    pointer-events: none;
+    text-align: center;
+}
+.contact-cont{
+    width: 200px;
+}
+.login-no-inp, .proceed-btn-Cont>input{
+    background-color: transparent;
+    border: 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: .291903px;
+    color: #fff;
+    mix-blend-mode: normal;
+}
+.contact-inp{
+    margin: 0 12px;
+    border: 0;
+    outline: none;
+    font-size: 14px;
+}
+.contact-inp::-webkit-outer-spin-button,
+.contact-inp::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.proceed-btn-Cont{
+    text-decoration: none;
+    display: flex;
+    width: 328px;
+    height: 48px;
+    position: relative;
+    top: 69px;
+    right: 300px;
+    border-radius: 25px;
+    background: #b61a09;
+    background: linear-gradient(0deg,#b61a09 -86%,#ff6d2e);
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.login-another-p{
+    /* border: 1px solid white; */
+    display: flex;
+    position: relative;
+    top: 80px;
+}
+.login-options-cont{
+    width:100%;
+    margin-top: 17px;
+    /* border: 1px solid teal; */
+    display: flex;
+    position: relative;
+    top: 60px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.trianle-shape{
+    width: 0;
+	height: 0;
+	border-left: 425px solid transparent;
+	border-right: 0px solid transparent;
+	border-bottom: 450px solid #2b2b30;
+    position: relative;
+    top: -419px;
+    right: 0px;
+    float: right;
+}
+.loginOpts{
+    border: 1px solid hsla(0,0%,100%,.2);
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 105px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.login-icon-email{
+    background-image: url(https://www.aha.video/email.145527ff74d14f04a19e.png);
+    width: 16px;
+    height: 12px;
+    margin-right: 6px;
+
+}
+.icon-text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #fff;
+}
+.login-icon-fb{
+    background-image: url(https://www.aha.video/facebook.c029626a037ced4eb96c.png);
+    width: 24px;
+    height: 20px;
+    margin-right: 6px;
+}
+.login-icon-google{
+    background-image: url(https://www.aha.video/google.ee9f51642384185f412a.png);
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+}

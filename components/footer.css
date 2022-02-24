@@ -1,0 +1,121 @@
+.footer{
+    background-color: #26262a;
+}
+.footer-top-sec{
+    display: flex;
+    flex-wrap: wrap;
+    width: 99%;
+    justify-content: space-between;
+    margin-left: 1%;
+    color: #fff;
+    margin-bottom: 24px;
+}
+.footerleftCont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.footer-logo{
+    height: 60px;
+    width: 113px;
+    margin: 64px 184px 26px 52px;
+    cursor: pointer;
+}
+.connect-with-text{
+    font-family: proximaNova;
+    font-style: normal;
+    margin: 0 0 8px 50px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+}
+.connectIconSec{
+    display: flex;
+    margin-left: 50px;
+    flex-flow: row wrap;
+}
+.connectIconSec > a{
+    height: 31.33px;
+    width: 32px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.downloadAppCont{
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+}
+.download-text{
+    margin: 0 0 8px 50px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+}
+.appBtns{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 8px 0 32px 50px;
+}
+.appBtns >a{
+    height: 36px;
+    width: 104px;
+    margin-right: 7.1px;
+    cursor: pointer;
+}
+.appBtns > a > img{
+    width: 100%;
+}
+.supportMailText{
+    color: #ff6d2e;
+}
+.footer-hr{
+    opacity: .1;
+    border: 1px solid #fff;
+}
+.footer-last-sec{
+    display: flex;
+    flex-direction: var(--footer-meta-data-flex-direction,row);
+    justify-content: space-between;
+    min-height: 68px;
+    width: 100%;
+}
+.footer-copyright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: proximaNova;
+    font-style: normal;
+    margin-left: 65px;
+    margin-right: var(--meta-data-left-container-margin,0);
+    color: #fff;
+    font-size: 14px;
+    line-height: 17px;
+}
+.footer-poweredby{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 300px;
+}
+.poweredbyh5{
+    font-family: proximaNova;
+    font-style: normal;
+    color: #96969d;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    line-height: 28px;
+    margin-right: 10px;
+}
+.firstlight{
+    filter: brightness(.7);
+    width: 90px;
+    cursor: pointer;
+    margin-bottom: -8px;
+}
+.firstlight > img{
+    width: 100%;;
+    height: 21.9px;
+}
