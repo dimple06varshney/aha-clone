@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import "./Subscribe.css";
+import { BsArrowLeft } from "react-icons/bs";
 
 function Subscribe() {
   return (
     <Container>
       <FirstInner>
         <ChoosePlan>
-          <img
-            src="https://toppng.com/uploads/preview/back-arrow-icon-svg-115497813125teq2tnex4.png"
-            alt=""
+        <BsArrowLeft 
+            style={{ width: "45px", height: "30px", color: "white" }}
           />
           <h1>Choose a Plan</h1>
         </ChoosePlan>
