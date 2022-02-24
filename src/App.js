@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import Imgslider from './components/imgSlider';
 import Movies from './components/NewReleases';
 import Genre from './components/Genre';
-
+import Footer from "../src/components/footer/Footer"
 function App() {
   return (
     <div className="App">
@@ -16,7 +15,7 @@ function App() {
       <Genre title="Drama" genre = {18} />
       <Genre title="Romance" genre = {10749} />
       <Genre title="Thriller" genre = {53} />
-
+      <Footer/>
     </div>
   );
 }

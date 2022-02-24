@@ -34,9 +34,9 @@ function NewReleases(props) {
     <Container>
       <h3>{props.title}</h3>
       <Carousel {...settings}>
-        {data.map((e) => {
+        {data.map((e,i) => {
           return (
-            <div>
+            <div key={i}>
                <img
             className="img-card"
               src={`https://image.tmdb.org/t/p/w500${e.poster_path}            `}
