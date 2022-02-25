@@ -3,9 +3,10 @@ import Movies from './NewReleases';
 import Genre from './Genre';
 import Footer from "./footer/Footer"
 import Header from './Header';
+import "./home.css";
 const Home = () =>{
     return (
-       <div>
+       <div className='homepage'>
        <Header/>    
       <Imgslider />
       <Movies title='New Releases' />

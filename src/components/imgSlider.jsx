@@ -64,7 +64,6 @@ const dispatch = useDispatch()
 export default Imgslider;
 
 const Carousel = Styled(Slider)`
-margin-top:20px;
 width:100%;
 ul li button {
     &:before{

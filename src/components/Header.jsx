@@ -46,13 +46,12 @@ function Header() {
         <SearchBox>
           <input type="text" placeholder="Search Title Movie or Cast" />
 
-          <a href="">
+
             <SearchImage src="https://www.aha.video/search-icon.704c679b82e10dd8379c.svg" />
-          </a>
         </SearchBox>
 
-        <LanguageImage src="https://www.aha.video/language-icon.ef88ebcc6b1bcda97fc4.svg" />
-        <SubscribeButton>Subscribe Now</SubscribeButton>
+        <Link to="/language"><LanguageImage src="https://www.aha.video/language-icon.ef88ebcc6b1bcda97fc4.svg" /></Link>
+        <Link to="/subscribe"><SubscribeButton>Subscribe Now</SubscribeButton></Link>
         <UserImage src="https://www.aha.video/assets/icons/svg/avatar_profile.svg" />
        <StyledLink to={"/signin"}> <SignIn>Sign In</SignIn></StyledLink>
       </NavTools>
