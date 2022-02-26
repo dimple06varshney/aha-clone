@@ -1,19 +1,29 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { auth } from "../firebase.config";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import "./Login.css";
+import { useDispatch } from "react-redux";
+import { addLogin } from "../../redux/Action";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 const Login = () =>{
-   
+    const [auther ,setauther] = useState(false)
+    const {login}  = useSelector((store)=>store)
+  console.log("login",login)
+    const dispatch = useDispatch()
+   const navigate = useNavigate()
    const loginwithGoogle = () =>{
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((res)=>{
-        console.log("signin-",res);
+        dispatch(addLogin(res.user))
+        setauther(true)
+        console.log("signin-",res.user);
     }).catch((err)=>{
         console.log("err",err);
     })
    }
-
-    return (
+    if(auther) navigate("/")
+   return (
         <div className="login">
             <div className="login-logo"></div>
             <div className="loginCard">

@@ -85,9 +85,18 @@ margin-left: 2%;
     transform: translate(0, -15px);
   }
   }
+  .slick-next{
+    right:10px;
+    &::before{
+        font-size:30px;
+    }
+  }
   .slick-prev{
     left:-30px;
     z-index:1;
+    &::before{
+        font-size:30px;
+    }
   
   }
     .slick-disabled{

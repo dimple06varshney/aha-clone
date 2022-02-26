@@ -9,11 +9,13 @@ import { useSelector } from "react-redux";
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { addData } from '../redux/Action';
+import { useState } from 'react';
+import {MdArrowForwardIos} from 'react-icons/md'
 function Imgslider() {
 const {data,lang}  = useSelector((store)=>store)
 const dispatch = useDispatch()
-
-
+const [apidata, setapidata] = useState([])
+const baseUrl = 'https://image.tmdb.org/t/p/original'
     useEffect(()=>{
         axios
       .get(
@@ -21,8 +23,9 @@ const dispatch = useDispatch()
       )
       .then(function (response) {
           console.log("starts")
-        console.log(response.data.results)
-        dispatch(addData(response.data.results));
+          console.log(response.data.results)
+        setapidata(response.data.results)
+        // dispatch(addData(response.data.results));
         
       });
 
@@ -30,7 +33,7 @@ const dispatch = useDispatch()
 
     },[])
 
-    console.log("data",data)
+    // console.log("data",MdArrowForwardIos)
 
     
 
@@ -47,24 +50,32 @@ const dispatch = useDispatch()
 
   return (
   <Carousel {...settings}>
-      <Wrap>
-          <img src="https://image-resizer-cloud-api.akamaized.net/image/A123AD13-3C0D-4CBF-8965-A9190E074E35/0-3x1.jpg?width=1440"  alt=''/>
+      {console.log("apidata",apidata)}
+      {apidata.map((e)=>{
+          if(!e.backdrop_path)return
+         return  <Wrap>
+          <img src ={`${baseUrl}${e.backdrop_path}`} alt=''/>
       </Wrap>
+
+      })}
+{/*       
       <Wrap>
           <img src="https://image-resizer-cloud-api.akamaized.net/image/73315301-F56E-49DB-9DBF-CC03D04CC99F/0-3x1.jpg?width=1440" alt=''/>
       </Wrap>
       <Wrap>
           <img src="https://image-resizer-cloud-api.akamaized.net/image/6F40B3A6-FACD-4D2A-AC86-A123CC569A01/0-3x1.jpg?width=1440" alt=''/>
-      </Wrap>
+      </Wrap> */}
 
   </Carousel>
 )
 }
 
 export default Imgslider;
+const icon = Styled(MdArrowForwardIos)`
+    
 
+`
 const Carousel = Styled(Slider)`
-margin-top:20px;
 width:100%;
 ul li button {
     &:before{
@@ -73,17 +84,31 @@ ul li button {
     }
 }
 .slick-prev{
-    left:0;
+    left:20px;
     z-index:1;
     height:100px;
+    &::before{
+        font-size:30px;
+    }
+}
+.slick-dots li{
+    margin:0;
 }
 .slick-next{
-    right:0;
+    right:30px;
     z-index:1;
+    &::before{
+        /* content: "\f101"; */
+        /* MdArrowForwardIos */
+        /* background-color:red; */
+        font-size:30px;
+        /* height:40px; */
+    
+    }
 }
 li.slick-active button::before{
-
 color:white;
+
 }
 
 // .slick-list{
@@ -98,12 +123,13 @@ button{
 
 `
 const Wrap = Styled.div`
-
+height:500px;
 img{
     // border:4px solid transparent;
     // border-radius:4px;
     width:100%;
     height:100%;
+    object-fit:cover;
     // box-shadow: rgba(0 0 0 /69%) 0px 26px 30px -10px,
     // rgb(0 0 0 / 73%) 0px 16px 10px -10px;
     transition-duration:300ms;
