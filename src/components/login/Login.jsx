@@ -29,9 +29,9 @@ const Login = () =>{
             <div className="loginCard">
                
                 <div className="loginCardCont">
-                  <div className="go-backbtn" >
+                  <Link to={"/"}><div className="go-backbtn" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none" className="ng-star-inserted"><path d="M8.37377 1.70711C8.7643 1.31658 8.7643 0.683418 8.37377 0.292893C7.98325 -0.0976311 7.35008 -0.0976311 6.95956 0.292893L0.292893 6.95956C-0.097631 7.35009 -0.097631 7.98325 0.292893 8.37377L6.95956 15.0404C7.35008 15.431 7.98325 15.431 8.37377 15.0404C8.7643 14.6499 8.7643 14.0168 8.37377 13.6262L2.41421 7.66667L8.37377 1.70711Z" fill="#ECECEC"></path></svg>
-                  </div>
+                  </div></Link>
                     <div className="login-start-text">
                         <p>Let's get < br/> started <span className="start-text-dot">.</span></p>    
                     </div>
@@ -73,8 +73,6 @@ const Login = () =>{
                 </div>
                
             </div>   
-        
-        <div className="trianle-shape"></div>
         </div>
     )
 }
