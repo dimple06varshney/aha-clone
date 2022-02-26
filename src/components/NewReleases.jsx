@@ -4,7 +4,9 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from 'react-router-dom';
 function NewReleases(props) {
+  const navigate = useNavigate()
   let settings = {
     dots: false,
     infinite: false,
@@ -36,11 +38,20 @@ function NewReleases(props) {
       <Carousel {...settings}>
         {data.map((e) => {
           return (
+<<<<<<< Updated upstream
             <div>
                <img
+=======
+            <div key={i}>
+               <img onClick={()=>{
+
+                 navigate(`/details/${e.id}`)
+
+               }}
+>>>>>>> Stashed changes
             className="img-card"
-              src={`https://image.tmdb.org/t/p/w500${e.poster_path}            `}
-            
+              src={`https://image.tmdb.org/t/p/w500${e.poster_path}`}
+              alt="poster"
             />
 
             </div>
@@ -80,14 +91,23 @@ margin-left: 2%;
     width:95%;
   height: 240px;
   transition: 0.3s;
-
+  border-radius :5% ;
   &:hover{
     transform: translate(0, -15px);
   }
   }
+  .slick-next{
+    right:10px;
+    &::before{
+        font-size:30px;
+    }
+  }
   .slick-prev{
     left:-30px;
     z-index:1;
+    &::before{
+        font-size:30px;
+    }
   
   }
     .slick-disabled{

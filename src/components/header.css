@@ -1,0 +1,14 @@
+#nav_black{
+    background: #1d1e20;
+    height: 70px;
+  display: flex;
+  width: 99%;
+  align-items: center;
+  top:0;
+  padding: 0px 20px;
+  position:fixed;
+  z-index:1;
+  transition: all 0.5s ease-in;
+}
+
+  

@@ -96,7 +96,9 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from 'react-router-dom';
 function Genre(props) {
+  const navigate = useNavigate()
   let settings = {
     dots: false,
     infinite: false,
@@ -124,13 +126,17 @@ function Genre(props) {
     <Container>
       <h3>{props.title}</h3>
       <Carousel {...settings}>
-        {data.map((e) => {
+        {data.map((e,i) => {
           return (
-            <div>
-               <img
+            <div key={i}>
+               <img onClick={()=>{
+
+navigate(`/details/${e.id}`)
+
+}}
             className="img-card"
-              src={`https://image.tmdb.org/t/p/w500${e.poster_path}            `}
-            
+              src={`https://image.tmdb.org/t/p/w500${e.poster_path}`}
+             alt=""
             />
 
             </div>
@@ -169,6 +175,7 @@ margin-left: 2%;
   img {
     width:95%;
   height: 240px;
+  border-radius :5% ;
   transition: 0.3s;
 
   &:hover{
@@ -178,7 +185,16 @@ margin-left: 2%;
   .slick-prev{
     left:-30px;
     z-index:1;
+    &::before{
+        font-size:30px;
+    }
   
+  }
+  .slick-next{
+    right:10px;
+    &::before{
+        font-size:30px;
+    }
   }
     .slick-disabled{
      
