@@ -27,14 +27,14 @@ function Subscribe() {
   }
   
   //display razorpay
-  async function displayRazorpay() {
+  async function displayRazorpay(amt) {
     
     //if user has not logged in
-     if(!login.displayName)
-     {
-        alert("You hav not logged in!")
-       return navigate("/signin")
-     }
+    //  if(!login.displayName)
+    //  {
+    //     alert("You hav not logged in!")
+    //    return navigate("/signin")
+    //  }
     //login condition closed ///
 
     const res = await loadScript(
@@ -47,7 +47,7 @@ function Subscribe() {
     }
 
     // creating a new order
-    const result = await axios.post("http://localhost:5000/payment/orders");
+    const result = await axios.post(`https://aha-clone.herokuapp.com/payment/orders/${amt}`);
 
     if (!result) {
         alert("Server error. Are you online?");
@@ -73,7 +73,7 @@ function Subscribe() {
                 razorpaySignature: response.razorpay_signature,
             };
 
-            const result = await axios.post("http://localhost:5000/payment/success", data);
+            const result = await axios.post("https://aha-clone.herokuapp.com/payment/success", data);
 
             alert(result.data.msg);
             navigate("/")
@@ -122,7 +122,9 @@ function Subscribe() {
               <h4>
                 INR 399/ <span>year</span>
               </h4>
-              <button onClick={displayRazorpay}>Subsribe</button>
+              <button onClick={()=>{
+                displayRazorpay(399)
+              }}>Subsribe</button>
             </Price>
           </FirstCard>
           <SecondCard>
@@ -140,7 +142,9 @@ function Subscribe() {
               <h4>
                 INR 199/ <span>3 months</span>
               </h4>
-              <button>Subsribe</button>
+              <button onClick={()=>{
+                displayRazorpay(199)
+              }}>Subsribe</button>
             </Price>
           </SecondCard>
         </TwoCards>

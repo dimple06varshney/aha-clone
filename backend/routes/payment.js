@@ -3,16 +3,16 @@ const express = require("express");
 const Razorpay = require("razorpay");
 const crypto = require('crypto');
 const router = express.Router();
-router.post("/orders", async (req,res)=>{
+router.post("/orders/:id", async (req,res)=>{
     try{
-         
+        
         const instance = new Razorpay({
             key_id: "rzp_test_w2Db3IVWnj9nLm",
             key_secret: "atQwIR6PaOcrP46VsBYOWPx2"
         })
 
         const options = {
-            amount: 39900,
+            amount: req.params.id*100,
             currency: "INR",
             receipt: "receipt_order_74394",
         }
