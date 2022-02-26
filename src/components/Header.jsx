@@ -3,8 +3,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {useState} from "react";
 import "./header.css";
+import { useSelector } from "react-redux";
 function Header() {
-  
+  const {login}  = useSelector((store)=>store)
+  console.log("login",login.displayName)
+
   const [showBlack, setShowBlack] = useState(false)
 
   useEffect(()=>{
@@ -50,10 +53,12 @@ function Header() {
             <SearchImage src="https://www.aha.video/search-icon.704c679b82e10dd8379c.svg" />
         </SearchBox>
 
-        <Link to="/language"><LanguageImage src="https://www.aha.video/language-icon.ef88ebcc6b1bcda97fc4.svg" /></Link>
-        <Link to="/subscribe"><SubscribeButton>Subscribe Now</SubscribeButton></Link>
-        <UserImage src="https://www.aha.video/assets/icons/svg/avatar_profile.svg" />
-       <StyledLink to={"/signin"}> <SignIn>Sign In</SignIn></StyledLink>
+        <LanguageImage src="https://www.aha.video/language-icon.ef88ebcc6b1bcda97fc4.svg" />
+        <SubscribeButton>Subscribe Now</SubscribeButton>
+        {login.photoURL?<UserImage src={`${login.photoURL}`} />:<UserImage src="https://www.aha.video/assets/icons/svg/avatar_profile.svg" />}
+        {/* <UserImage src="https://www.aha.video/assets/icons/svg/avatar_profile.svg" /> */}
+        {login.displayName?<h3>{login.displayName}</h3>:<StyledLink to={"/signin"}> <SignIn>Sign In</SignIn></StyledLink>}
+       
       </NavTools>
     </Navbar>
   );

@@ -169,6 +169,7 @@ margin-left: 2%;
   img {
     width:95%;
   height: 240px;
+  border-radius :5% ;
   transition: 0.3s;
 
   &:hover{
@@ -178,7 +179,16 @@ margin-left: 2%;
   .slick-prev{
     left:-30px;
     z-index:1;
+    &::before{
+        font-size:30px;
+    }
   
+  }
+  .slick-next{
+    right:10px;
+    &::before{
+        font-size:30px;
+    }
   }
     .slick-disabled{
      
