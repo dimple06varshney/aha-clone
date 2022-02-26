@@ -51,9 +51,9 @@ const baseUrl = 'https://image.tmdb.org/t/p/original'
   return (
   <Carousel {...settings}>
       {console.log("apidata",apidata)}
-      {apidata.map((e)=>{
+      {apidata.map((e, i)=>{
           if(!e.backdrop_path)return
-         return  <Wrap>
+         return  <Wrap key= {i}>
           <img src ={`${baseUrl}${e.backdrop_path}`} alt=''/>
       </Wrap>
 

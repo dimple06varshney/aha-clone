@@ -53,7 +53,7 @@ function Header() {
             <SearchImage src="https://www.aha.video/search-icon.704c679b82e10dd8379c.svg" />
         </SearchBox>
 
-        <LanguageImage src="https://www.aha.video/language-icon.ef88ebcc6b1bcda97fc4.svg" />
+        <Link to="/language"><LanguageImage src="https://www.aha.video/language-icon.ef88ebcc6b1bcda97fc4.svg" /></Link>
         <Link to="/subscribe"><SubscribeButton>Subscribe Now</SubscribeButton></Link>
         {login.photoURL?<UserImage src={`${login.photoURL}`} />:<UserImage src="https://www.aha.video/assets/icons/svg/avatar_profile.svg" />}
         {/* <UserImage src="https://www.aha.video/assets/icons/svg/avatar_profile.svg" /> */}

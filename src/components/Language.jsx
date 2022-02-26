@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Header from "./Header";
 
 function Language() {
   const changeColor = () => {
@@ -22,7 +23,7 @@ function Language() {
 
   const backChange = () => {
     document.getElementById("english").style.background =
-      "linear-gradient(180deg, #b61a09 -86.4%, #ff6d2e)";
+      "linear-gradient(131.81deg,rgba(78,67,63,0) 3.92%,rgba(255,110,69,.5) 111.82%)";
 
     document.getElementById("english").style.color = "white";
     document.getElementById("language").style.background = "none";
@@ -30,12 +31,14 @@ function Language() {
 
   const changeBack = () => {
     document.getElementById("language").style.background =
-      "linear-gradient(180deg, #b61a09 -86.4%, #ff6d2e)";
+      "linear-gradient(131.81deg,rgba(78,67,63,0) 3.92%,rgba(255,110,69,.5) 111.82%)";
     document.getElementById("english").style.background = "none";
 
     document.getElementById("language").style.color = "white";
   };
   return (
+    <div>
+    <Header/>
     <Container>
       <Innerdiv>
         <h3 className="watch-option">
@@ -93,6 +96,7 @@ function Language() {
         <button>Proceed</button>
       </SecondDiv>
     </Container>
+    </div>
   );
 }
 
@@ -108,7 +112,7 @@ const Container = styled.div`
   box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
   border-radius: 12px;
   box-sizing: border-box;
-  margin-top: 50px;
+  margin-top: 10%;
 `;
 
 const Innerdiv = styled.div`

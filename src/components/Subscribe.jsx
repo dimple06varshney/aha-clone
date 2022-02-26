@@ -5,9 +5,12 @@ import { BsArrowLeft } from "react-icons/bs";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import Header from "./Header";
-
+import { useSelector } from "react-redux";
+import {useNavigate} from "react-router-dom";
 function Subscribe() {
-  
+  const {login}  = useSelector((store)=>store)
+  console.log(login.displayName);
+  const navigate = useNavigate()
   //loadscript for razorpay
   function loadScript(src) {
     return new Promise((resolve) => {
@@ -25,6 +28,15 @@ function Subscribe() {
   
   //display razorpay
   async function displayRazorpay() {
+    
+    //if user has not logged in
+     if(!login.displayName)
+     {
+        alert("You hav not logged in!")
+       return navigate("/signin")
+     }
+    //login condition closed ///
+
     const res = await loadScript(
         "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -64,6 +76,7 @@ function Subscribe() {
             const result = await axios.post("http://localhost:5000/payment/success", data);
 
             alert(result.data.msg);
+            navigate("/")
         },
         prefill: {
             name: "Dimple Varshney",
