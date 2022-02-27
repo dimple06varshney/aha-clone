@@ -15,14 +15,39 @@ const Login = () =>{
    const loginwithGoogle = () =>{
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((res)=>{
+       
         dispatch(addLogin(res.user))
         setauther(true)
+        postAuther(res.user)
+        localStorage.setItem("aha-user", JSON.stringify(res.user))
         console.log("signin-",res.user);
+
     }).catch((err)=>{
         console.log("err",err);
     })
    }
-    if(auther) navigate("/")
+    if(auther) {
+
+        navigate("/")
+    }
+
+    const postAuther = async (newuser) =>{
+        const user = await fetch(`https://aha-clone-d97e5-default-rtdb.firebaseio.com/userData.json`,{
+            method:"POST",
+            headers: {
+               "Content-Type": "appliaction/json"
+            },
+            body: JSON.stringify({
+                user_email: newuser.email,
+                username: newuser.displayName,
+            })
+        })
+
+        if(user)
+        {
+            console.log("user firebase:", user);
+        }
+    }
    return (
         <div className="login">
             <div className="login-logo"></div>

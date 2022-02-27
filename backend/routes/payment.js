@@ -22,7 +22,7 @@ router.post("/orders", async (req,res)=>{
     }
     catch(err){
         console.log("orders err:",err);
-        res.status(500).send(error);
+        res.status(500).send(err);
     }
 })
 

@@ -1,0 +1,21 @@
+.footerCardCateg{
+    display: flex;
+    width: 160px;
+    flex-direction: column;
+    font-family: proximaNova;
+    font-style: normal;
+    margin-top: 73px;
+    margin-right: var(--right-container-margin,0);
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+}
+.footerCardCateg >a {
+    font-family: proximaNova;
+    font-style: normal;
+    color: #96969d;
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 16px;
+    margin-top: 12px;
+}
