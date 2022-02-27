@@ -1,12 +1,19 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { addLogin } from "../redux/Action";
 import {useState} from "react";
 import "./header.css";
-import { useSelector } from "react-redux";
+import { useSelector ,useDispatch} from "react-redux";
 function Header() {
-  
-  const {login}  = useSelector((store)=>store)
+  const dispatch = useDispatch();
+  const localStrUser = JSON.parse(localStorage.getItem("aha-user"));
+ const {login}  = useSelector((store)=>store)
+  console.log("localUser: ", localStrUser);
+  if(localStrUser && !login)
+  {
+    dispatch(addLogin(localStrUser))
+  }
   console.log("login",login.displayName)
 
   const [showBlack, setShowBlack] = useState(false)

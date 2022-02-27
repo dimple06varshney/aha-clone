@@ -30,11 +30,11 @@ function Subscribe() {
   async function displayRazorpay(amt) {
     
     //if user has not logged in
-    //  if(!login.displayName)
-    //  {
-    //     alert("You hav not logged in!")
-    //    return navigate("/signin")
-    //  }
+     if(!login)
+     {
+        alert("You hav not logged in!")
+       return navigate("/signin")
+     }
     //login condition closed ///
 
     const res = await loadScript(
