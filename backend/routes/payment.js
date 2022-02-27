@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const router = express.Router();
 router.post("/orders/:id", async (req,res)=>{
     try{
-        
+         
         const instance = new Razorpay({
             key_id: "rzp_test_w2Db3IVWnj9nLm",
             key_secret: "atQwIR6PaOcrP46VsBYOWPx2"
@@ -22,7 +22,7 @@ router.post("/orders/:id", async (req,res)=>{
     }
     catch(err){
         console.log("orders err:",err);
-        res.status(500).send(error);
+        res.status(500).send(err);
     }
 })
 

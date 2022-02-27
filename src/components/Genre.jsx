@@ -96,7 +96,11 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 function Genre(props) {
+  const {lang} = useSelector((store)=>store)
+  const navigate = useNavigate()
   let settings = {
     dots: false,
     infinite: false,
@@ -111,7 +115,7 @@ function Genre(props) {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=024bccde6bb621415ae4cb4cddc07d56&with_original_language=te&with_genres=${props.genre}`
+        `https://api.themoviedb.org/3/discover/movie?api_key=024bccde6bb621415ae4cb4cddc07d56&with_original_language=${lang=="tamil"?"ta":"te"}&with_genres=${props.genre}`
       )
       .then(function (response) {
         // console.log(response.data.results)
@@ -127,7 +131,9 @@ function Genre(props) {
         {data.map((e,i) => {
           return (
             <div key={i}>
-               <img
+               <img onClick={()=>{
+              navigate(`/details/${e.id}`)
+          }}
             className="img-card"
               src={`https://image.tmdb.org/t/p/w500${e.poster_path}`}
              alt=""

@@ -3,19 +3,19 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { addLogin } from "../redux/Action";
 import {useState} from "react";
+import {useDispatch} from "react-redux";
 import "./header.css";
-import { useSelector ,useDispatch} from "react-redux";
+
+import { useSelector } from "react-redux";
 function Header() {
   const dispatch = useDispatch();
+  const {login,payment}  = useSelector((store)=>store)
+  console.log("login",login.displayName)
   const localStrUser = JSON.parse(localStorage.getItem("aha-user"));
- const {login}  = useSelector((store)=>store)
-  console.log("localUser: ", localStrUser);
   if(localStrUser && !login)
   {
     dispatch(addLogin(localStrUser))
   }
-  console.log("login",login.displayName)
-
   const [showBlack, setShowBlack] = useState(false)
 
   useEffect(()=>{
@@ -62,7 +62,8 @@ function Header() {
         </SearchBox>
 
         <Link to="/language"><LanguageImage src="https://www.aha.video/language-icon.ef88ebcc6b1bcda97fc4.svg" /></Link>
-        <Link to="/subscribe"><SubscribeButton>Subscribe Now</SubscribeButton></Link>
+        {payment?<h3>Premium User</h3>: <Link to="/subscribe"><SubscribeButton>Subscribe Now</SubscribeButton></Link>}
+       
         {login.photoURL?<UserImage src={`${login.photoURL}`} />:<UserImage src="https://www.aha.video/assets/icons/svg/avatar_profile.svg" />}
         {/* <UserImage src="https://www.aha.video/assets/icons/svg/avatar_profile.svg" /> */}
         {login.displayName?<h3>{login.displayName}</h3>:<StyledLink to={"/signin"}> <SignIn>Sign In</SignIn></StyledLink>}

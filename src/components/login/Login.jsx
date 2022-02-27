@@ -1,5 +1,5 @@
 import {Link, useNavigate} from "react-router-dom";
-import { auth, firedb } from "../firebase.config";
+import { auth } from "../firebase.config";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import "./Login.css";
 import { useDispatch } from "react-redux";
@@ -32,17 +32,21 @@ const Login = () =>{
     }
 
     const postAuther = async (newuser) =>{
-        
-        const saveUser = {
-            name: newuser.displayName,
-            email: newuser.email
-        }
-
-        console.log("saveUser",saveUser);
-        firedb.child("userData").push(saveUser, (err)=>{
-            if(err)
-            console.log("firedb login err:",err);
+        const user = await fetch(`https://aha-clone-d97e5-default-rtdb.firebaseio.com/userData.json`,{
+            method:"POST",
+            headers: {
+               "Content-Type": "appliaction/json"
+            },
+            body: JSON.stringify({
+                user_email: newuser.email,
+                username: newuser.displayName,
+            })
         })
+
+        if(user)
+        {
+            console.log("user firebase:", user);
+        }
     }
    return (
         <div className="login">

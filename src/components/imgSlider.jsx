@@ -11,15 +11,18 @@ import { useDispatch } from 'react-redux';
 import { addData } from '../redux/Action';
 import { useState } from 'react';
 import {MdArrowForwardIos} from 'react-icons/md'
+import { useNavigate } from 'react-router-dom';
 function Imgslider() {
+    const navigate = useNavigate()
 const {data,lang}  = useSelector((store)=>store)
+console.log("lang",lang)
 const dispatch = useDispatch()
 const [apidata, setapidata] = useState([])
 const baseUrl = 'https://image.tmdb.org/t/p/original'
     useEffect(()=>{
         axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=024bccde6bb621415ae4cb4cddc07d56&with_original_language=te`
+        `https://api.themoviedb.org/3/discover/movie?api_key=024bccde6bb621415ae4cb4cddc07d56&with_original_language=${lang=="tamil"?"ta":"te"}`
       )
       .then(function (response) {
           console.log("starts")
@@ -54,7 +57,9 @@ const baseUrl = 'https://image.tmdb.org/t/p/original'
       {apidata.map((e, i)=>{
           if(!e.backdrop_path)return
          return  <Wrap key= {i}>
-          <img src ={`${baseUrl}${e.backdrop_path}`} alt=''/>
+          <img onClick={()=>{
+              navigate(`/details/${e.id}`)
+          }} src ={`${baseUrl}${e.backdrop_path}`} alt=''/>
       </Wrap>
 
       })}

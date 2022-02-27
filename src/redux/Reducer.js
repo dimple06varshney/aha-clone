@@ -1,7 +1,7 @@
 import { ADD_DATA, ADD_LANG, ADD_LOGIN, ADD_PAYMENT } from "./ActionTypes";
 
 const init = {
-  lang: "tamil",
+  lang: "telgu",
   payment: false,
   login: false,
   data: [],

@@ -3,29 +3,34 @@ import { instance } from "../axios";
 import styled from "styled-components";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
-import check from "../assets/check.png";
+// import check from "../assets/check.png";
 import WebFont from "webfontloader";
 import { SECTION } from "./Details_styles";
-
-console.log(check);
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Header from "./Header";
 
 const baseUrl = "https://image.tmdb.org/t/p/original";
 
-export function DetailsPage({ fetchUrl }) {
+export function DetailsPage() {
+  const navigate = useNavigate()
+  const {payment} = useSelector((store)=>store)
+  const params = useParams()
+  // console.log(params.id)
   const [details, setDetails] = useState([]);
   const [ trailerUrl, setTrailerUrl ] = useState( "" );
   const [ display, setDisplay ] = useState( true );
 
   useEffect(() => {
     async function fetchData() {
-      const request = await instance.get(fetchUrl);
+      const request = await instance.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=2de712a36830216e53d2563ead7b1d80&append_to_response=videos`);
       // console.log(request)
       setDetails(request.data);
 
       return request;
     }
     fetchData();
-  }, [fetchUrl]);
+  }, []);
 
   useEffect(() => {
     WebFont.load({
@@ -87,6 +92,8 @@ export function DetailsPage({ fetchUrl }) {
   const runtime = timeConvert(`${details.runtime}`);
   console.log(details);
   return (
+  <>
+   <Header/>
     <SECTION>
       <div className="details_main">
         <div className="details_main_container">
@@ -101,7 +108,7 @@ export function DetailsPage({ fetchUrl }) {
                 <div className="tag_premium">
                   <div
                     className="check"
-                    style={{ backgroundImage: `url(${check})` }}
+                    // style={{ backgroundImage: `url(${check})` }}
                   ></div>
                   Premium
                 </div>
@@ -117,13 +124,16 @@ export function DetailsPage({ fetchUrl }) {
               <div className="actions">
                 <div className="wrapper">
                   <div className="top_button_container">
-                    <button
+                    
+                    {payment?<button
                       className="play_trailer"
                       onClick={() => handleClick()}
                     >
-                      Play Trailer
-                    </button>
-                    <button className="subscribe_now">Subscribe Now</button>
+                      Play
+                    </button>:<button onClick={()=>{
+                      navigate('/subscribe')
+                    }} className="subscribe_now">Subscribe Now</button>}
+                    
                   </div>
                   <div className="bottom_button_container">
                     <button className="share_button">
@@ -269,5 +279,6 @@ export function DetailsPage({ fetchUrl }) {
 
       {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
     </SECTION>
+    </>
   );
 }

@@ -4,7 +4,11 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 function NewReleases(props) {
+  const navigate = useNavigate()
+  const {lang} = useSelector((store)=>store)
   let settings = {
     dots: false,
     infinite: false,
@@ -19,7 +23,7 @@ function NewReleases(props) {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=024bccde6bb621415ae4cb4cddc07d56&with_original_language=te&page=${Math.floor(
+        `https://api.themoviedb.org/3/discover/movie?api_key=024bccde6bb621415ae4cb4cddc07d56&with_original_language=${lang=="tamil"?"ta":"te"}&page=${Math.floor(
           Math.random() * 10
         )}`
       )
@@ -37,7 +41,9 @@ function NewReleases(props) {
         {data.map((e,i) => {
           return (
             <div key={i}>
-               <img
+               <img onClick={()=>{
+              navigate(`/details/${e.id}`)
+          }}
             className="img-card"
               src={`https://image.tmdb.org/t/p/w500${e.poster_path}`}
               alt="poster"

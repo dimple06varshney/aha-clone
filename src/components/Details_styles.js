@@ -4,7 +4,7 @@ export const SECTION = styled.div`
   .details_main {
     width: 100%;
     height: var(--hero-phone-main-height, 33.33vw);
-    margin-top: var(--details-margin-top, 0);
+    margin-top: 70px;
     overflow-x: hidden;
     font-family: Montserrat;
 

@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { addLang } from "../redux/Action";
 import Header from "./Header";
 
 function Language() {
+  const [text,settext] = useState("")
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const changeColor = () => {
+    settext("telgu")
     document.getElementById("content").style.background =
       "linear-gradient(180deg, #b61a09 -86.4%, #ff6d2e)";
 
@@ -14,6 +21,7 @@ function Language() {
   };
 
   const changeBackColor = () => {
+    settext("tamil")
     document.getElementById("content2").style.background =
       "linear-gradient(180deg, #b61a09 -86.4%, #ff6d2e)";
     document.getElementById("content").style.background =
@@ -44,7 +52,7 @@ function Language() {
         <h3 className="watch-option">
           Watch <span>100%</span>Content in
         </h3>
-        <div id="content" onClick={changeColor}>
+        <div  id="content" onClick={changeColor}>
           <img
             src="https://www.aha.video/language-select-icon.702d6cd3acaad06004aa.svg"
             alt=""
@@ -93,7 +101,10 @@ function Language() {
           </li>
         </ul>
 
-        <button>Proceed</button>
+        <button onClick={()=>{
+          dispatch(addLang(text))
+          navigate('/')
+        }}>Proceed</button>
       </SecondDiv>
     </Container>
     </div>

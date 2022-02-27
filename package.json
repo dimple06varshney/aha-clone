@@ -16,6 +16,7 @@
     "express": "^4.17.3",
     "firebase": "^9.6.7",
     "mongoose": "^6.2.3",
+    "movie-trailer": "^2.1.0",
     "razorpay": "^2.8.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -24,10 +25,12 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "react-slick": "^0.28.1",
+    "react-youtube": "^7.14.0",
     "redux": "^4.1.2",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",
