@@ -11,7 +11,7 @@ import { addPayment } from "../redux/Action";
 function Subscribe() {
   const dispatch = useDispatch()
   const {login}  = useSelector((store)=>store)
-  console.log(login.displayName);
+ 
   const navigate = useNavigate()
   //loadscript for razorpay
   function loadScript(src) {
@@ -30,7 +30,7 @@ function Subscribe() {
   
   //display razorpay
   async function displayRazorpay(amt) {
-    
+   
     //if user has not logged in
      if(!login.displayName)
      {
@@ -49,7 +49,7 @@ function Subscribe() {
     }
 
     // creating a new order
-    const result = await axios.post(`https://aha-clone.herokuapp.com/payment/orders/${amt}`);
+    const result = await axios.post(`http://localhost:3006/payment/orders/${amt}`);
 
     if (!result) {
         alert("Server error. Are you online?");
@@ -75,7 +75,7 @@ function Subscribe() {
                 razorpaySignature: response.razorpay_signature,
             };
 
-            const result = await axios.post("https://aha-clone.herokuapp.com/payment/success", data);
+            const result = await axios.post("http://localhost:3006/payment/success", data);
 
             alert(result.data.msg);
             dispatch(addPayment(true))

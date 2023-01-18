@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { DEV_CONFIG } from "../config";
 function NewReleases(props) {
   const navigate = useNavigate()
   const {lang} = useSelector((store)=>store)
@@ -19,16 +20,16 @@ function NewReleases(props) {
   };
 
   const [data, setdata] = useState([]);
-
+const apiKey = DEV_CONFIG.API_KEY;
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=024bccde6bb621415ae4cb4cddc07d56&with_original_language=${lang=="tamil"?"ta":"te"}&page=${Math.floor(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_original_language=${lang=="tamil"?"ta":"te"}&page=${Math.floor(
           Math.random() * 10
         )}`
       )
       .then(function (response) {
-        // console.log(response.data.results)
+       
         setdata(response.data.results);
         
       });

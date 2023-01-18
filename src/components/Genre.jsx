@@ -98,6 +98,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { DEV_CONFIG } from "../config";
 function Genre(props) {
   const {lang} = useSelector((store)=>store)
   const navigate = useNavigate()
@@ -111,14 +112,14 @@ function Genre(props) {
   };
 
   const [data, setdata] = useState([]);
-
+  let apiKey = DEV_CONFIG.API_KEY;
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=024bccde6bb621415ae4cb4cddc07d56&with_original_language=${lang=="tamil"?"ta":"te"}&with_genres=${props.genre}`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_original_language=${lang=="tamil"?"ta":"te"}&with_genres=${props.genre}`
       )
       .then(function (response) {
-        // console.log(response.data.results)
+      
         setdata(response.data.results);
         
       });

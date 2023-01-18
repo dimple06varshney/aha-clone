@@ -12,31 +12,28 @@ import { addData } from '../redux/Action';
 import { useState } from 'react';
 import {MdArrowForwardIos} from 'react-icons/md'
 import { useNavigate } from 'react-router-dom';
+import { DEV_CONFIG } from '../config';
 function Imgslider() {
     const navigate = useNavigate()
 const {data,lang}  = useSelector((store)=>store)
-console.log("lang",lang)
 const dispatch = useDispatch()
 const [apidata, setapidata] = useState([])
-const baseUrl = 'https://image.tmdb.org/t/p/original'
+const baseUrl = 'https://image.tmdb.org/t/p/original';
+const apiKey = DEV_CONFIG.API_KEY;
     useEffect(()=>{
         axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=024bccde6bb621415ae4cb4cddc07d56&with_original_language=${lang=="tamil"?"ta":"te"}`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_original_language=${lang=="tamil"?"ta":"te"}`
       )
       .then(function (response) {
-          console.log("starts")
-          console.log(response.data.results)
         setapidata(response.data.results)
-        // dispatch(addData(response.data.results));
+        dispatch(addData(response.data.results));
         
       });
 
 
 
     },[])
-
-    // console.log("data",MdArrowForwardIos)
 
     
 
@@ -53,7 +50,7 @@ const baseUrl = 'https://image.tmdb.org/t/p/original'
 
   return (
   <Carousel {...settings}>
-      {console.log("apidata",apidata)}
+
       {apidata.map((e, i)=>{
           if(!e.backdrop_path)return
          return  <Wrap key= {i}>
